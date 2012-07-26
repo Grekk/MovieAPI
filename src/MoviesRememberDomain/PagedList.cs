@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace MoviesRememberDomain
 {
+    [DataContract]
     public class PagedList<T>
     {
         public PagedList()
@@ -15,10 +17,13 @@ namespace MoviesRememberDomain
             TotalPage = 1;
         }
 
+        [DataMember]
         public IList<T> EntityList { get; set; }
 
+        [DataMember]
         public int CurrentPage { get; set; }
         private int _count = 24;
+        [DataMember]
         public int Count
         {
             get
@@ -31,7 +36,9 @@ namespace MoviesRememberDomain
             }
         }
 
+        [DataMember]
         public int TotalResult { get; set; }
+        [DataMember]
         public int TotalPage { get; set; }
     }
 }

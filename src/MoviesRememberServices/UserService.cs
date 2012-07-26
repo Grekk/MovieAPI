@@ -11,7 +11,9 @@ using AutoMapper;
 using MoviesRememberDao;
 using MoviesRememberDao.Interface;
 using MoviesRememberDB;
+using MoviesRememberServices.MailService;
 using MoviesRememberServices.Utils;
+using ServiceStack.ServiceInterface.ServiceModel;
 using Action = MoviesRememberDomain.Action;
 
 namespace MoviesRememberServices
@@ -21,16 +23,18 @@ namespace MoviesRememberServices
         private readonly AbstractUserMovieDAO _userMovieRepo;
         private readonly IUserActionsDAO _userActionDAO;
         private readonly IMoviesShowingService _moviesService;
+        private readonly IMailService _mailService;
 
 
         public const int UserActionsLength = 50;
 
 
-        public UserService(IUserActionsDAO userActionDAO, AbstractUserMovieDAO userMovieRepo, IMoviesShowingService moviesService)
+        public UserService(IUserActionsDAO userActionDAO, AbstractUserMovieDAO userMovieRepo, IMoviesShowingService moviesService, IMailService mailService)
         {
             _userMovieRepo = userMovieRepo;
             _userActionDAO = userActionDAO;
             _moviesService = moviesService;
+            _mailService = mailService;
         }
 
         public void AddMovie(Guid userId, string userName, Movie movie)
@@ -104,66 +108,8 @@ namespace MoviesRememberServices
 
         public bool AddNewMember(string email)
         {
-            //RestClient client = new RestClient();
-            //client.BaseUrl = "https://api.mailgun.net/v2";
-            //client.Authenticator =
-            //        new HttpBasicAuthenticator("api",
-            //                                   ConfigurationManager.AppSettings["MAILGUN_API_KEY"]);
-            //RestRequest request = new RestRequest();
-            //request.Resource = "lists/{list}/members";
-            //request.AddParameter("list", ConfigurationManager.AppSettings["MAILING_LIST"], ParameterType.UrlSegment);
-            //request.AddParameter("address", email);
-            //request.AddParameter("subscribed", true);
-            //request.Method = Method.POST;
-            //IRestResponse response = client.Execute(request);
-            //return response.ResponseStatus == ResponseStatus.Completed;
-            return true;
-        }
-
-        public void SendMoviesReleased()
-        {
-            new LogEvent("Envoyé !!").Raise();
-            string url = ConfigurationManager.AppSettings["MOVIE_URL"];
-            string htmlContent = "<html><body><p>Voici la liste des films conseillés qui sortent aujourd'hui:</p><section>";
-
-            foreach (TinyMovie movie in _moviesService.GetBestWeekMovies())
-            {
-                htmlContent += "<section style=\"width: 200px;height: 500px;float: left;padding: 10px;\">";
-                htmlContent += "<a href=\"" + url + movie.ApiId + "\"><img src=\"" + movie.PictureUrl + "\" height=\"193\" width=\"143\"/></a>";
-                htmlContent += "</section>";
-            }
-
-            htmlContent += "</section></body></html>";
-
-            SendMessage(htmlContent);
-
-        }
-
-        private void SendMessage(string message)
-        {
-            //string mess = "Send Message :" + ConfigurationManager.AppSettings["MAILGUN_API_KEY"] + " : " +
-            //              ConfigurationManager.AppSettings["MAIL_DOMAIN"] + " : " +
-            //              ConfigurationManager.AppSettings["MAILING_LIST"];
-
-            //RestClient client = new RestClient();
-            //client.BaseUrl = "https://api.mailgun.net/v2";
-            //client.Authenticator =
-            //        new HttpBasicAuthenticator("api",
-            //                                   ConfigurationManager.AppSettings["MAILGUN_API_KEY"]);
-            //RestRequest request = new RestRequest();
-            //request.AddParameter("domain",
-            //                     ConfigurationManager.AppSettings["MAIL_DOMAIN"], ParameterType.UrlSegment);
-            //request.Resource = "{domain}/messages";
-            //request.AddParameter("from", "movies.remember@movies.fr");
-            //request.AddParameter("to", ConfigurationManager.AppSettings["MAILING_LIST"]);
-            //request.AddParameter("subject", "Sortie ciné");
-            //request.AddParameter("html", message);
-            //request.Method = Method.POST;
-            //IRestResponse response = client.Execute(request);
-            //if (response.ErrorException != null)
-            //{
-            //    new LogEvent(response.ErrorMessage).Raise();
-            //}
+            string mailingList = ConfigurationManager.AppSettings["MAILING_LIST"];
+            return _mailService.AddNewUser(mailingList, email);
         }
     }
 }

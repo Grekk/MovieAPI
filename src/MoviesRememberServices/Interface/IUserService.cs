@@ -19,7 +19,5 @@ namespace MoviesRememberServices.Interface
         IList<UserAction> GetUsersActions();
 
         bool AddNewMember(string email);
-
-        void SendMoviesReleased();
     }
 }

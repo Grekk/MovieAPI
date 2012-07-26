@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using MoviesRememberServices.Interface;
+using MoviesRememberServices.MailService;
 using StructureMap;
 using PetaPoco;
 using MoviesRememberDomain;
@@ -57,6 +58,10 @@ namespace MoviesRememberServices.Utils
 
             ObjectFactory.Container.Configure(
                c => c.For<AbstractUserMovieDAO>().Use<UserMovieDAO>()
+               );
+
+            ObjectFactory.Container.Configure(
+               c => c.For<IMailService>().Use<MailServiceClient>()
                );
 
 #if DEBUG
