@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MoviesRememberDomain
 {
+    [DataContract]
     public class TinyMovie
     {
         [DataMember]

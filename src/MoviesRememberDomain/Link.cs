@@ -6,6 +6,7 @@ using System.Text;
 
 namespace MoviesRememberDomain
 {
+    [DataContract]
     public class Link
     {
         [DataMember]
