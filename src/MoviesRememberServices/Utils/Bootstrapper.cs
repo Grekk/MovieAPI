@@ -55,6 +55,14 @@ namespace MoviesRememberServices.Utils
                 );
 
             ObjectFactory.Container.Configure(
+                c => c.For<IUserService>().Use<UserService>()
+                );
+
+            ObjectFactory.Container.Configure(
+               c => c.For<ISearchService>().Use<SearchService>()
+               );
+
+            ObjectFactory.Container.Configure(
                c => c.For<AbstractUserMovieDAO>().Use<UserMovieDAO>()
                );
 
