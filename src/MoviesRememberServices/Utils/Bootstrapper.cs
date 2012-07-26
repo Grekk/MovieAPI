@@ -18,8 +18,6 @@ namespace MoviesRememberServices.Utils
 {
     public static class Bootstrapper
     {
-        private static bool _isInitialized;
-
         private static void RegisterDependencies()
         {
             string host = ConfigurationManager.AppSettings["REDISTOGO_URL"];
@@ -107,12 +105,8 @@ namespace MoviesRememberServices.Utils
 
         public static void Bootstrap()
         {
-            if (!_isInitialized)
-            {
-                _isInitialized = true;
-                RegisterDependencies();
-                InitializeMapper();
-            }
+            RegisterDependencies();
+            InitializeMapper();
         }
 
         public static T GetInstance<T>()
