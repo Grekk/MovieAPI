@@ -17,8 +17,7 @@ namespace MovieAPI
 
         public MoviesShowingService()
         {
-            new Bootstrapper().Bootstrap();
-            _moviesShowingService = ObjectFactory.GetInstance<MoviesRememberServices.Interface.IMoviesShowingService>();
+            _moviesShowingService = Bootstrapper.GetInstance<MoviesRememberServices.Interface.IMoviesShowingService>();
         }
 
         public TinyMovieList GetNowShowingMoviesByRate(int numPage)

@@ -34,6 +34,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="ServiceStack.Common, Version=3.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\ServiceStack.Common.3.9.0\lib\net35\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=3.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\ServiceStack.Common.3.9.0\lib\net35\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=3.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\ServiceStack.Text.3.9.2\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\..\..\MoviesRemember\MoviesRemember\src\MoviesRemember\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
     </Reference>
@@ -80,6 +92,13 @@
       <Project>{7F249CF9-7625-4F1D-AD93-E203D9547EF1}</Project>
       <Name>MoviesRememberDomain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MoviesRememberServices\MoviesRememberServices.csproj">
+      <Project>{49B20EF3-B02F-4980-9983-EF165E351FBF}</Project>
+      <Name>MoviesRememberServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

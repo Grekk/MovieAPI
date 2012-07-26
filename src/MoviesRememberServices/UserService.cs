@@ -65,7 +65,7 @@ namespace MoviesRememberServices
         public IList<UserMovie> GetUserMovieList(Guid userId)
         {
             new LogEvent("Log ok").Raise();
-            new Bootstrapper().Bootstrap();
+            Bootstrapper.Bootstrap();
             IList<UserMovie> result = new List<UserMovie>();
             IList<user_movie> dbResult = _userMovieRepo.GetByUserId(userId);
             foreach (user_movie movie in dbResult)
