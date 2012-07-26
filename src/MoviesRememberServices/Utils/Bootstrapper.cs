@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
-using Quartz;
-using Quartz.Impl;
 using StructureMap;
 using PetaPoco;
 using MoviesRememberDomain;
