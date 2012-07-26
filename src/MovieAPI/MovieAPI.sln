@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieAPI", "MovieAPI.csproj", "{C68781F0-04B1-4EBF-B779-7C94561318B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesRememberServices", "..\..\..\MoviesRemember\MoviesRemember\src\MoviesRemember\MoviesRememberServices\MoviesRememberServices.csproj", "{49B20EF3-B02F-4980-9983-EF165E351FBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesRememberServices", "..\MoviesRememberServices\MoviesRememberServices.csproj", "{49B20EF3-B02F-4980-9983-EF165E351FBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesRememberDomain", "..\..\..\MoviesRemember\MoviesRemember\src\MoviesRemember\MoviesRememberDomain\MoviesRememberDomain.csproj", "{7F249CF9-7625-4F1D-AD93-E203D9547EF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesRememberDao", "..\MoviesRememberDao\MoviesRememberDao.csproj", "{001AA4F3-6F81-4D8D-9C42-EB63065CD69C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesRememberDao", "..\..\..\MoviesRemember\MoviesRemember\src\MoviesRemember\MoviesRememberDao\MoviesRememberDao.csproj", "{001AA4F3-6F81-4D8D-9C42-EB63065CD69C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesRememberDomain", "..\MoviesRememberDomain\MoviesRememberDomain.csproj", "{7F249CF9-7625-4F1D-AD93-E203D9547EF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +23,14 @@ Global
 		{49B20EF3-B02F-4980-9983-EF165E351FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49B20EF3-B02F-4980-9983-EF165E351FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49B20EF3-B02F-4980-9983-EF165E351FBF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F249CF9-7625-4F1D-AD93-E203D9547EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F249CF9-7625-4F1D-AD93-E203D9547EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F249CF9-7625-4F1D-AD93-E203D9547EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F249CF9-7625-4F1D-AD93-E203D9547EF1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{001AA4F3-6F81-4D8D-9C42-EB63065CD69C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{001AA4F3-6F81-4D8D-9C42-EB63065CD69C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{001AA4F3-6F81-4D8D-9C42-EB63065CD69C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{001AA4F3-6F81-4D8D-9C42-EB63065CD69C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F249CF9-7625-4F1D-AD93-E203D9547EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F249CF9-7625-4F1D-AD93-E203D9547EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F249CF9-7625-4F1D-AD93-E203D9547EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F249CF9-7625-4F1D-AD93-E203D9547EF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
