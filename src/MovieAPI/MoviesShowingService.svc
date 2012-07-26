@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="MovieAPI.Service1" CodeBehind="MoviesShowingService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MovieAPI.MoviesShowingService" CodeBehind="MoviesShowingService.svc.cs" %>
