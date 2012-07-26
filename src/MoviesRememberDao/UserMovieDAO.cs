@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using MoviesRememberDomain;
 using MoviesRememberDao.Interface;
-using AutoMapper;
 using MoviesRememberDB;
 
 namespace MoviesRememberDao
