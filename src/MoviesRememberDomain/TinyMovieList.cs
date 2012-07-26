@@ -24,6 +24,9 @@ namespace MoviesRememberDomain
             {
                 return Math.Round((TinyMovies.EntityList.Where(x => x.ReleaseDate.HasValue).ToList().Max(x => x.ReleaseDate.Value - DateTime.Now)).TotalDays / 7, 0);
             }
+            set
+            {
+            }
         }
 
         [DataMember]

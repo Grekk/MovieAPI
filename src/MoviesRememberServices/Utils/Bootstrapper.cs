@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using MoviesRememberServices.Interface;
 using StructureMap;
 using PetaPoco;
 using MoviesRememberDomain;
@@ -40,22 +41,18 @@ namespace MoviesRememberServices.Utils
                 c => c.For<Database>().Use<MoviesRememberDBDB>()
                 );
 
-            if (ConfigurationManager.AppSettings["Environment"] == "Release")
-            {
-                var url = new Uri(host);
-                ObjectFactory.Container.Configure(
-                    c => c.For<IRedisClient>().Use(new RedisClient(url))
-                    );
-            }
-            else
-            {
-                ObjectFactory.Container.Configure(
-                    c => c.For<IRedisClient>().Use(new RedisClient(host, port, pwd))
-                    );
-            }
+
+
+            ObjectFactory.Container.Configure(
+                c => c.For<IRedisClient>().Use(new RedisClient(host, port, pwd))
+                );
 
             ObjectFactory.Container.Configure(
                 c => c.For<IUserActionsDAO>().Use<UserActionsDAO>()
+                );
+
+            ObjectFactory.Container.Configure(
+                c => c.For<IMoviesShowingService>().Use<MoviesShowingService>()
                 );
 
             ObjectFactory.Container.Configure(
@@ -105,7 +102,7 @@ namespace MoviesRememberServices.Utils
 
         public static void Bootstrap()
         {
-            if (_isInitialized)
+            if (!_isInitialized)
             {
                 _isInitialized = true;
                 RegisterDependencies();
