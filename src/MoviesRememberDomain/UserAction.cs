@@ -40,10 +40,14 @@ namespace MoviesRememberDomain
         public string MovieId { get; set; }
     }
 
+    [DataContract]
     public enum Action
     {
+        [EnumMember]
         ADD_MOVIE,
+        [EnumMember]
         DELETE_MOVIE,
+        [EnumMember]
         SHOW_MOVIE
     }
 }

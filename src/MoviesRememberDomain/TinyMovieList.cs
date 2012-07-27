@@ -44,9 +44,12 @@ namespace MoviesRememberDomain
         }
     }
 
+    [DataContract]
     public enum OrderEnum
     {
+        [EnumMember]
         BY_DATE,
+        [EnumMember]
         BY_RANK
     }
 }

@@ -109,7 +109,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web.config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Service References\MailService\MailService.wsdl" />
     <None Include="Service References\MailService\MailService.xsd">
