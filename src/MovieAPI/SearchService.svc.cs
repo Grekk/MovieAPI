@@ -12,11 +12,11 @@ namespace MovieAPI
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "SearchService" in code, svc and config file together.
     public class SearchService : ISearchService
     {
-        private readonly ISearchService _searchService;
+        private readonly MoviesRememberServices.Interface.ISearchService _searchService;
 
         public SearchService()
         {
-            _searchService = Bootstrapper.GetInstance<ISearchService>();
+            _searchService = Bootstrapper.GetInstance<MoviesRememberServices.Interface.ISearchService>();
         }
 
         public TinyMovieList Search(string query)

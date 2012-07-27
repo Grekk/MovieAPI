@@ -14,6 +14,5 @@ namespace MovieAPI
     {
         [OperationContract]
         TinyMovieList Search(string query);
-
     }
 }

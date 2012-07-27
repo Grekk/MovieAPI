@@ -11,11 +11,11 @@ namespace MovieAPI
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "UserService" in code, svc and config file together.
     public class UserService : IUserService
     {
-        private readonly IUserService _userService;
+        private readonly MoviesRememberServices.Interface.IUserService _userService;
 
         public UserService()
         {
-            _userService = Bootstrapper.GetInstance<IUserService>();
+            _userService = Bootstrapper.GetInstance<MoviesRememberServices.Interface.IUserService>();
         }
 
         public void AddMovie(Guid userId, string userName, MoviesRememberDomain.Movie movie)
@@ -51,11 +51,6 @@ namespace MovieAPI
         public bool AddNewMember(string email)
         {
             return _userService.AddNewMember(email);
-        }
-
-        public void SendMoviesReleased()
-        {
-            _userService.SendMoviesReleased();
         }
     }
 }

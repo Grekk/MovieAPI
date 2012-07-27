@@ -32,8 +32,5 @@ namespace MovieAPI
 
         [OperationContract]
         bool AddNewMember(string email);
-
-        [OperationContract]
-        void SendMoviesReleased();
     }
 }

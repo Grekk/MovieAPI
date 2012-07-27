@@ -50,26 +50,25 @@ namespace MoviesRememberServices.Utils
                 c => c.For<IUserActionsDAO>().Use<UserActionsDAO>()
                 );
 
-            ObjectFactory.Container.Configure(
-                c => c.For<IMoviesShowingService>().Use<MoviesShowingService>()
-                );
+            //ObjectFactory.Container.Configure(
+            //    c => c.For<IMoviesShowingService>().Use<MoviesShowingService>()
+            //    );
 
-            ObjectFactory.Container.Configure(
-                c => c.For<IUserService>().Use<UserService>()
-                );
+            //ObjectFactory.Container.Configure(
+            //    c => c.For<IUserService>().Use<UserService>()
+            //    );
 
-            ObjectFactory.Container.Configure(
-               c => c.For<ISearchService>().Use<SearchService>()
-               );
+            //ObjectFactory.Container.Configure(
+            //   c => c.For<ISearchService>().Use<SearchService>()
+            //   );
 
             ObjectFactory.Container.Configure(
                c => c.For<AbstractUserMovieDAO>().Use<UserMovieDAO>()
                );
 
             ObjectFactory.Container.Configure(
-               c => c.For<IMailService>().Use<MailServiceClient>()
-               );
-
+                c => c.For<IMailService>().Use(new MailServiceClient("BasicHttpBinding_IMailService"))
+                );
 #if DEBUG
             // Place a breakpoint on the line and see the configuration of StructureMap.
             string configuration = ObjectFactory.WhatDoIHave();
