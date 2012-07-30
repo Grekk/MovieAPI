@@ -47,17 +47,9 @@ namespace MoviesRememberDao
         {
             IList<UserAction> userActions = new List<UserAction>();
 
-
             using (IRedisTypedClient<UserAction> redis = _redisClient.GetTypedClient<UserAction>())
             {
-                //    UserAction us = new UserAction();
-                //us.Action = Action.ADD_MOVIE;
-                //us.MovieId = _redisClient.Password;
-                //us.MovieName = ConfigurationManager.AppSettings["REDISTOGO_URL"];
-                //us.UserName = ConfigurationManager.AppSettings["REDISTOGO_PORT"];
-                //userActions.Add(us);
-                //userActions = redis.Lists["user:actions"];
-                return redis.GetAll();
+                userActions = redis.Lists["user:actions"];
             }
 
             return userActions;

@@ -40,11 +40,19 @@ namespace MoviesRememberServices.Utils
                 c => c.For<Database>().Use<MoviesRememberDBDB>()
                 );
 
-
-
-            ObjectFactory.Container.Configure(
-                c => c.For<IRedisClient>().Use(new RedisClient(host, port, pwd))
-                );
+            if (ConfigurationManager.AppSettings["Environment"] == "Release")
+            {
+                var url = new Uri(host);
+                ObjectFactory.Container.Configure(
+                    c => c.For<IRedisClient>().Use(new RedisClient(url))
+                    );
+            }
+            else
+            {
+                ObjectFactory.Container.Configure(
+                    c => c.For<IRedisClient>().Use(new RedisClient(host, port, pwd))
+                    );
+            }
 
             ObjectFactory.Container.Configure(
                 c => c.For<IUserActionsDAO>().Use<UserActionsDAO>()
