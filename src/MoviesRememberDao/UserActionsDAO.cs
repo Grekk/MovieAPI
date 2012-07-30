@@ -47,7 +47,7 @@ namespace MoviesRememberDao
 
             using (IRedisTypedClient<UserAction> redis = _redisClient.GetTypedClient<UserAction>())
             {
-                userActions = redis.Lists["user:actions"];
+                //userActions = redis.Lists["user:actions"];
             }
 
             return userActions;

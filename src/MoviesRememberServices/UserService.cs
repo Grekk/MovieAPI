@@ -103,9 +103,7 @@ namespace MoviesRememberServices
 
         public IList<UserAction> GetUsersActions()
         {
-            IList<UserAction> userActions = new List<UserAction>();
-            //return _userActionDAO.GetActions();
-            return userActions;
+            return _userActionDAO.GetActions();
         }
 
         public bool AddNewMember(string email)
