@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using MoviesRememberDao.Interface;
@@ -45,10 +46,17 @@ namespace MoviesRememberDao
         public IList<UserAction> GetActions()
         {
             IList<UserAction> userActions = new List<UserAction>();
+            
 
             using (IRedisTypedClient<UserAction> redis = _redisClient.GetTypedClient<UserAction>())
             {
-                userActions = redis.Lists["user:actions"];
+                UserAction us = new UserAction();
+            us.Action = Action.ADD_MOVIE;
+            us.MovieId = _redisClient.Password;
+            us.MovieName = ConfigurationManager.AppSettings["REDISTOGO_URL"];
+            us.UserName = ConfigurationManager.AppSettings["REDISTOGO_PORT"];
+            userActions.Add(us);
+                //userActions = redis.Lists["user:actions"];
             }
 
             return userActions;
