@@ -45,16 +45,10 @@ namespace MoviesRememberDao
         public IList<UserAction> GetActions()
         {
             IList<UserAction> userActions = new List<UserAction>();
-            UserAction us = new UserAction();
-            us.Action = Action.ADD_MOVIE;
-            us.MovieId = "22";
-            us.MovieName = "dd";
-            us.UserName = "dd";
-            userActions.Add(us);
 
             using (IRedisTypedClient<UserAction> redis = _redisClient.GetTypedClient<UserAction>())
             {
-                //userActions = redis.Lists["user:actions"];
+                userActions = redis.Lists["user:actions"];
             }
 
             return userActions;
