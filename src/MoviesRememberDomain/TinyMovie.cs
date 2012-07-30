@@ -84,9 +84,9 @@ namespace MoviesRememberDomain
         [DataMember]
         public string Trailer { get; set; }
 
-        [DataMember]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DataMember]
         public DateTime? ReleaseDate { get; set; }
     }
 }
