@@ -36,5 +36,9 @@ namespace MoviesRememberDomain
         [DataMember]
         [Display(Name = "Supprimer? ")]
         public bool ShouldDelete { get; set; }
+
+        [DataMember]
+        [Display(Name = "Déjà vu: ")]
+        public bool AlreadySeen { get; set; }
     }
 }
