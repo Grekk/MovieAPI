@@ -24,7 +24,7 @@ namespace MoviesRememberServices.Builders
             DateTime releaseDate;
             if (DateTime.TryParse(releaseString, out releaseDate))
             {
-                movie.ReleaseDate = releaseDate;
+                movie.ReleaseDate = releaseDate.Date;
             }
 
             movie.Trailer = BuildProperty(jsonData, "trailer", "href");
@@ -58,7 +58,7 @@ namespace MoviesRememberServices.Builders
                 DateTime releaseDate;
                 if (DateTime.TryParse(releaseString, out releaseDate))
                 {
-                    movie.ReleaseDate = releaseDate;
+                    movie.ReleaseDate = releaseDate.Date;
                 }
             }
             catch
