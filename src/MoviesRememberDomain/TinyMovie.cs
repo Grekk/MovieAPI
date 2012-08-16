@@ -87,6 +87,7 @@ namespace MoviesRememberDomain
         [DataMember]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [Display(Name = "Date de sortie: ")]
         public DateTime? ReleaseDate { get; set; }
     }
 }
