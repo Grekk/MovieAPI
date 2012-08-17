@@ -273,222 +273,6 @@ namespace MoviesRememberDB
 
 	}
     
-	[TableName("UsersInRoles")]
-	[PrimaryKey("UserId", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class UsersInRole : MoviesRememberDBDB.Record<UsersInRole>  
-    {
-        [Column] 
-		public Guid UserId 
-		{ 
-			get
-			{
-				return _UserId;
-			}
-			set
-			{
-				_UserId = value;
-				MarkColumnModified("UserId");
-			}
-		}
-		Guid _UserId;
-
-        [Column] 
-		public Guid RoleId 
-		{ 
-			get
-			{
-				return _RoleId;
-			}
-			set
-			{
-				_RoleId = value;
-				MarkColumnModified("RoleId");
-			}
-		}
-		Guid _RoleId;
-
-	}
-    
-	[TableName("user_movie")]
-	[PrimaryKey("user_movie_id")]
-	[ExplicitColumns]
-    public partial class user_movie : MoviesRememberDBDB.Record<user_movie>  
-    {
-        [Column] 
-		public long user_movie_id 
-		{ 
-			get
-			{
-				return _user_movie_id;
-			}
-			set
-			{
-				_user_movie_id = value;
-				MarkColumnModified("user_movie_id");
-			}
-		}
-		long _user_movie_id;
-
-        [Column] 
-		public string user_movie_title 
-		{ 
-			get
-			{
-				return _user_movie_title;
-			}
-			set
-			{
-				_user_movie_title = value;
-				MarkColumnModified("user_movie_title");
-			}
-		}
-		string _user_movie_title;
-
-        [Column] 
-		public string user_movie_picture 
-		{ 
-			get
-			{
-				return _user_movie_picture;
-			}
-			set
-			{
-				_user_movie_picture = value;
-				MarkColumnModified("user_movie_picture");
-			}
-		}
-		string _user_movie_picture;
-
-        [Column] 
-		public DateTime user_movie_release_date 
-		{ 
-			get
-			{
-				return _user_movie_release_date;
-			}
-			set
-			{
-				_user_movie_release_date = value;
-				MarkColumnModified("user_movie_release_date");
-			}
-		}
-		DateTime _user_movie_release_date;
-
-        [Column] 
-		public long user_movie_api_id 
-		{ 
-			get
-			{
-				return _user_movie_api_id;
-			}
-			set
-			{
-				_user_movie_api_id = value;
-				MarkColumnModified("user_movie_api_id");
-			}
-		}
-		long _user_movie_api_id;
-
-        [Column] 
-		public Guid user_movie_user_id 
-		{ 
-			get
-			{
-				return _user_movie_user_id;
-			}
-			set
-			{
-				_user_movie_user_id = value;
-				MarkColumnModified("user_movie_user_id");
-			}
-		}
-		Guid _user_movie_user_id;
-
-        [Column] 
-		public int? user_movie_rate 
-		{ 
-			get
-			{
-				return _user_movie_rate;
-			}
-			set
-			{
-				_user_movie_rate = value;
-				MarkColumnModified("user_movie_rate");
-			}
-		}
-		int? _user_movie_rate;
-
-        [Column] 
-		public bool user_movie_seen 
-		{ 
-			get
-			{
-				return _user_movie_seen;
-			}
-			set
-			{
-				_user_movie_seen = value;
-				MarkColumnModified("user_movie_seen");
-			}
-		}
-		bool _user_movie_seen;
-
-	}
-    
-	[TableName("Applications")]
-	[PrimaryKey("ApplicationId", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class Application : MoviesRememberDBDB.Record<Application>  
-    {
-        [Column] 
-		public string ApplicationName 
-		{ 
-			get
-			{
-				return _ApplicationName;
-			}
-			set
-			{
-				_ApplicationName = value;
-				MarkColumnModified("ApplicationName");
-			}
-		}
-		string _ApplicationName;
-
-        [Column] 
-		public Guid ApplicationId 
-		{ 
-			get
-			{
-				return _ApplicationId;
-			}
-			set
-			{
-				_ApplicationId = value;
-				MarkColumnModified("ApplicationId");
-			}
-		}
-		Guid _ApplicationId;
-
-        [Column] 
-		public string Description 
-		{ 
-			get
-			{
-				return _Description;
-			}
-			set
-			{
-				_Description = value;
-				MarkColumnModified("Description");
-			}
-		}
-		string _Description;
-
-	}
-    
 	[TableName("Memberships")]
 	[PrimaryKey("UserId", autoIncrement=false)]
 	[ExplicitColumns]
@@ -860,6 +644,207 @@ namespace MoviesRememberDB
 			}
 		}
 		DateTime _LastUpdatedDate;
+
+	}
+    
+	[TableName("user_movie")]
+	[PrimaryKey("user_movie_id")]
+	[ExplicitColumns]
+    public partial class user_movie : MoviesRememberDBDB.Record<user_movie>  
+    {
+        [Column] 
+		public long user_movie_id 
+		{ 
+			get
+			{
+				return _user_movie_id;
+			}
+			set
+			{
+				_user_movie_id = value;
+				MarkColumnModified("user_movie_id");
+			}
+		}
+		long _user_movie_id;
+
+        [Column] 
+		public string user_movie_title 
+		{ 
+			get
+			{
+				return _user_movie_title;
+			}
+			set
+			{
+				_user_movie_title = value;
+				MarkColumnModified("user_movie_title");
+			}
+		}
+		string _user_movie_title;
+
+        [Column] 
+		public string user_movie_picture 
+		{ 
+			get
+			{
+				return _user_movie_picture;
+			}
+			set
+			{
+				_user_movie_picture = value;
+				MarkColumnModified("user_movie_picture");
+			}
+		}
+		string _user_movie_picture;
+
+        [Column] 
+		public DateTime user_movie_release_date 
+		{ 
+			get
+			{
+				return _user_movie_release_date;
+			}
+			set
+			{
+				_user_movie_release_date = value;
+				MarkColumnModified("user_movie_release_date");
+			}
+		}
+		DateTime _user_movie_release_date;
+
+        [Column] 
+		public long user_movie_api_id 
+		{ 
+			get
+			{
+				return _user_movie_api_id;
+			}
+			set
+			{
+				_user_movie_api_id = value;
+				MarkColumnModified("user_movie_api_id");
+			}
+		}
+		long _user_movie_api_id;
+
+        [Column] 
+		public Guid user_movie_user_id 
+		{ 
+			get
+			{
+				return _user_movie_user_id;
+			}
+			set
+			{
+				_user_movie_user_id = value;
+				MarkColumnModified("user_movie_user_id");
+			}
+		}
+		Guid _user_movie_user_id;
+
+        [Column] 
+		public int? user_movie_rate 
+		{ 
+			get
+			{
+				return _user_movie_rate;
+			}
+			set
+			{
+				_user_movie_rate = value;
+				MarkColumnModified("user_movie_rate");
+			}
+		}
+		int? _user_movie_rate;
+
+	}
+    
+	[TableName("UsersInRoles")]
+	[PrimaryKey("UserId", autoIncrement=false)]
+	[ExplicitColumns]
+    public partial class UsersInRole : MoviesRememberDBDB.Record<UsersInRole>  
+    {
+        [Column] 
+		public Guid UserId 
+		{ 
+			get
+			{
+				return _UserId;
+			}
+			set
+			{
+				_UserId = value;
+				MarkColumnModified("UserId");
+			}
+		}
+		Guid _UserId;
+
+        [Column] 
+		public Guid RoleId 
+		{ 
+			get
+			{
+				return _RoleId;
+			}
+			set
+			{
+				_RoleId = value;
+				MarkColumnModified("RoleId");
+			}
+		}
+		Guid _RoleId;
+
+	}
+    
+	[TableName("Applications")]
+	[PrimaryKey("ApplicationId", autoIncrement=false)]
+	[ExplicitColumns]
+    public partial class Application : MoviesRememberDBDB.Record<Application>  
+    {
+        [Column] 
+		public string ApplicationName 
+		{ 
+			get
+			{
+				return _ApplicationName;
+			}
+			set
+			{
+				_ApplicationName = value;
+				MarkColumnModified("ApplicationName");
+			}
+		}
+		string _ApplicationName;
+
+        [Column] 
+		public Guid ApplicationId 
+		{ 
+			get
+			{
+				return _ApplicationId;
+			}
+			set
+			{
+				_ApplicationId = value;
+				MarkColumnModified("ApplicationId");
+			}
+		}
+		Guid _ApplicationId;
+
+        [Column] 
+		public string Description 
+		{ 
+			get
+			{
+				return _Description;
+			}
+			set
+			{
+				_Description = value;
+				MarkColumnModified("Description");
+			}
+		}
+		string _Description;
 
 	}
 }

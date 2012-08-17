@@ -100,7 +100,6 @@ namespace MoviesRememberServices.Utils
                 .ForMember(dest => dest.user_movie_rate, opt => opt.MapFrom(src => src.Rate))
                 .ForMember(dest => dest.user_movie_user_id, opt => opt.MapFrom(src => src.UserId))
                 .ForMember(dest => dest.user_movie_api_id, opt => opt.MapFrom(src => src.ApiId))
-                .ForMember(dest => dest.user_movie_seen, opt => opt.MapFrom(src => src.AlreadySeen))
                 .ForMember(dest => dest.user_movie_title, opt => opt.MapFrom(src => src.Title));
 
             Mapper.CreateMap<user_movie, UserMovie>()
@@ -109,7 +108,6 @@ namespace MoviesRememberServices.Utils
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.user_movie_id))
                 .ForMember(dest => dest.Rate, opt => opt.MapFrom(src => src.user_movie_rate))
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.user_movie_user_id))
-                .ForMember(dest => dest.AlreadySeen, opt => opt.MapFrom(src => src.user_movie_seen))
                 .ForMember(dest => dest.ApiId, opt => opt.MapFrom(src => src.user_movie_api_id))
                 .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.user_movie_title));
 
