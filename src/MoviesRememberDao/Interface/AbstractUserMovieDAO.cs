@@ -13,6 +13,6 @@ namespace MoviesRememberDao.Interface
         {
         }
 
-        public abstract IList<user_movie> GetByUserId(Guid userId);
+        public abstract IList<user_movie> GetByUserId(Guid userId, int numPage);
     }
 }

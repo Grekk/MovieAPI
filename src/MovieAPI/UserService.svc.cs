@@ -33,9 +33,9 @@ namespace MovieAPI
             _userService.UpdateMovie(movie);
         }
 
-        public IList<MoviesRememberDomain.UserMovie> GetUserMovieList(Guid userId)
+        public IList<MoviesRememberDomain.UserMovie> GetUserMovieList(Guid userId, int numPage)
         {
-            return _userService.GetUserMovieList(userId);
+            return _userService.GetUserMovieList(userId, numPage);
         }
 
         public IList<MoviesRememberDomain.UserAction> AddUserAction(MoviesRememberDomain.UserAction action)

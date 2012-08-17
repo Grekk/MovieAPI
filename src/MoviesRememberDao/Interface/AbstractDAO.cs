@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 
@@ -8,6 +9,9 @@ namespace MoviesRememberDao.Interface
     public abstract class AbstractDAO<TEntity>
     {
         protected PetaPoco.Database _db;
+
+        protected int _movieCountByPage = int.Parse(ConfigurationManager.AppSettings["MovieCountByPage"]);
+
 
         public AbstractDAO(PetaPoco.Database db)
         {

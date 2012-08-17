@@ -22,7 +22,7 @@ namespace MovieAPI
         void UpdateMovie(UserMovie movie);
 
         [OperationContract]
-        IList<UserMovie> GetUserMovieList(Guid userId);
+        IList<UserMovie> GetUserMovieList(Guid userId, int numPage);
 
         [OperationContract]
         IList<UserAction> AddUserAction(UserAction action);

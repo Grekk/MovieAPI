@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using MoviesRememberDao.Interface;
 using MoviesRememberDB;
@@ -20,10 +21,10 @@ namespace MoviesRememberDao
         }
 
 
-        public override IList<user_movie> GetByUserId(Guid userId)
+        public override IList<user_movie> GetByUserId(Guid userId, int numPage)
         {
             var fetchSql = PetaPoco.Sql.Builder.Select("*").From("user_movie").Where("user_movie_user_id = @0", userId);
-            return _db.Query<user_movie>(fetchSql).ToList();
+            return _db.Page<user_movie>(numPage, _movieCountByPage , fetchSql).Items;
         }
 
         public override void DeleteById(long uid)
