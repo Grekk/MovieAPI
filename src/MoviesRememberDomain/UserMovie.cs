@@ -31,7 +31,7 @@ namespace MoviesRememberDomain
 
         [DataMember]
         [Display(Name = "Note: ")]
-        public int? Rate { get; set; }
+        public float? Rate { get; set; }
 
         [DataMember]
         [Display(Name = "Supprimer? ")]

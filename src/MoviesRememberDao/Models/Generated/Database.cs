@@ -743,7 +743,7 @@ namespace MoviesRememberDB
 		Guid _user_movie_user_id;
 
         [Column] 
-		public int? user_movie_rate 
+		public double? user_movie_rate 
 		{ 
 			get
 			{
@@ -755,7 +755,7 @@ namespace MoviesRememberDB
 				MarkColumnModified("user_movie_rate");
 			}
 		}
-		int? _user_movie_rate;
+		double? _user_movie_rate;
 
 	}
     
