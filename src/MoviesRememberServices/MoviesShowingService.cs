@@ -106,7 +106,7 @@ namespace MoviesRememberServices
             TinyMovieList movieListByRate = GetNowShowingMoviesByRate(1);
             IList<TinyMovie> topMoviesRateList = new List<TinyMovie>();
             IList<TinyMovie> resultMovieList = new List<TinyMovie>();
-            DateTime? maxDateTime = movieListByDate.TinyMovies.EntityList.Max(x => x.ReleaseDate);
+            DateTime? maxDateTime = movieListByDate.TinyMovies.EntityList.Where(x => x.ReleaseDate.Value.DayOfWeek == DayOfWeek.Wednesday).Max(x => x.ReleaseDate);
 
 
             for (int i = 0; i < 10; i++)
