@@ -12,7 +12,7 @@ namespace MoviesRememberServices.Interface
 
         void UpdateMovie(UserMovie movie);
 
-        IList<UserMovie> GetUserMovieList(Guid userId, int numPage);
+        TinyUserMovieList GetUserMovieList(Guid userId, int numPage);
 
         IList<UserAction> AddUserAction(UserAction action);
 

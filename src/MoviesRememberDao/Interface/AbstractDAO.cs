@@ -10,7 +10,7 @@ namespace MoviesRememberDao.Interface
     {
         protected PetaPoco.Database _db;
 
-        protected int _movieCountByPage = int.Parse(ConfigurationManager.AppSettings["MovieCountByPage"]);
+        protected int MovieCountByPage = int.Parse(ConfigurationManager.AppSettings["MovieCountByPage"]);
 
 
         public AbstractDAO(PetaPoco.Database db)

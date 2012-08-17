@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MoviesRememberDB;
+using PetaPoco;
+using MoviesRememberDomain;
 
 namespace MoviesRememberDao.Interface
 {
@@ -13,6 +15,6 @@ namespace MoviesRememberDao.Interface
         {
         }
 
-        public abstract IList<user_movie> GetByUserId(Guid userId, int numPage);
+        public abstract TinyUserMovieList GetByUserId(Guid userId, int numPage);
     }
 }

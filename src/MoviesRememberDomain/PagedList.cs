@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -9,6 +10,9 @@ namespace MoviesRememberDomain
     [DataContract]
     public class PagedList<T>
     {
+        private int _count = int.Parse(ConfigurationManager.AppSettings["MovieCountByPage"]);
+
+
         public PagedList()
         {
             EntityList = new List<T>();
@@ -22,7 +26,7 @@ namespace MoviesRememberDomain
 
         [DataMember]
         public int CurrentPage { get; set; }
-        private int _count = 24;
+        
         [DataMember]
         public int Count
         {

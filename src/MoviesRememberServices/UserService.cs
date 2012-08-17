@@ -65,17 +65,9 @@ namespace MoviesRememberServices
             _userMovieRepo.Update(userMovieToUpdate);
         }
 
-        public IList<UserMovie> GetUserMovieList(Guid userId, int numPage)
+        public TinyUserMovieList GetUserMovieList(Guid userId, int numPage)
         {
-            //Bootstrapper.Bootstrap();
-            IList<UserMovie> result = new List<UserMovie>();
-            IList<user_movie> dbResult = _userMovieRepo.GetByUserId(userId, numPage);
-            foreach (user_movie movie in dbResult)
-            {
-                result.Add(Mapper.Map<user_movie, UserMovie>(movie));
-            }
-
-            return result;
+            return _userMovieRepo.GetByUserId(userId, numPage);
         }
 
         public IList<UserAction> AddUserAction(UserAction action)

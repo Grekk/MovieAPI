@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using MoviesRememberServices.Utils;
+using MoviesRememberDomain;
 
 namespace MovieAPI
 {
@@ -33,7 +34,7 @@ namespace MovieAPI
             _userService.UpdateMovie(movie);
         }
 
-        public IList<MoviesRememberDomain.UserMovie> GetUserMovieList(Guid userId, int numPage)
+        public TinyUserMovieList GetUserMovieList(Guid userId, int numPage)
         {
             return _userService.GetUserMovieList(userId, numPage);
         }
