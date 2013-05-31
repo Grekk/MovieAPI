@@ -7,7 +7,6 @@ using MoviesRememberDao.Interface;
 using MoviesRememberDomain;
 using ServiceStack.Redis;
 using ServiceStack.Redis.Generic;
-using StructureMap;
 using Action = MoviesRememberDomain.Action;
 
 namespace MoviesRememberDao
