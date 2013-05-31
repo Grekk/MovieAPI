@@ -125,6 +125,29 @@ namespace MoviesRememberServices
             return resultMovieList;
         }
 
+        public TinyMovieList Search(string query)
+        {
+            TinyMovieList result = new TinyMovieList();
+
+            string json = JsonUtils.GetJson(Properties.Resources.SEARCH_MOVIE_URL + query);
+            dynamic glossaryEntry = _jss.Deserialize(json, typeof(object)) as dynamic;
+
+            TinyMovie movie = null;
+            try
+            {
+                foreach (dynamic value in glossaryEntry.feed.movie)
+                {
+                    movie = _movieBuilder.BuildTinyMovie(value);
+                    result.TinyMovies.EntityList.Add(movie);
+                }
+            }
+            catch
+            {
+            }
+
+            return result;
+        }
+
         public Movie GetMovie(long code)
         {
             string json = JsonUtils.GetJson(Properties.Resources.DISPLAY_MOVIE_URL + "&code=" + code);
@@ -136,5 +159,7 @@ namespace MoviesRememberServices
         {
             movieList.TinyMovies.TotalResult = (int)feed.totalResults;
         }
+
+
     }
 }

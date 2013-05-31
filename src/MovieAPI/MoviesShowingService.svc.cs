@@ -49,5 +49,10 @@ namespace MovieAPI
         {
             return _moviesShowingService.GetMovie(code);
         }
+
+        public TinyMovieList Search(string query)
+        {
+            return _moviesShowingService.Search(query);
+        }
     }
 }

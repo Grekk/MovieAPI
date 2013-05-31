@@ -31,6 +31,9 @@ namespace MovieAPI
 
         [OperationContract]
         Movie GetMovie(long code);
+
+        [OperationContract]
+        TinyMovieList Search(string query);
     }
 
 

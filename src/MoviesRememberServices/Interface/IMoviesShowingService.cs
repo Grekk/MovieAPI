@@ -17,5 +17,7 @@ namespace MoviesRememberServices.Interface
         IList<TinyMovie> GetBestWeekMovies();
 
         Movie GetMovie(long code);
+
+        TinyMovieList Search(string query);
     }
 }
