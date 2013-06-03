@@ -108,7 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\MailService\MailService.wsdl" />
     <None Include="Service References\MailService\MailService.xsd">
       <SubType>Designer</SubType>
